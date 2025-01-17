@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@tookscan/components/ui/Button'
 import html2canvas from 'html2canvas'
+import OrderDetailBox from '@tookscan/components/ui/OrderDetailBox'
 
 const OrderDetails = () => {
   const [showDetails, setShowDetails] = useState(false) // 자세히 버튼 상태
@@ -61,7 +62,7 @@ const OrderDetails = () => {
         <div className="mt-4 grid grid-cols-6 gap-4 bg-blue-secondary p-2 text-center text-sm font-bold text-blue-primary">
           <div>주문 번호</div>
           <div>주문 일시</div>
-          <div>주문 수량</div>
+          <div>상품 수량</div>
           <div>주문 금액</div>
           <div>작업 상태</div>
           <div>세부 내용</div>
@@ -85,75 +86,18 @@ const OrderDetails = () => {
           </div>
         </div>
 
-        {/* 자세히 보기 상자 */}
         {showDetails && (
-          <div className="order-details mt-6 rounded-lg border border-gray-300 bg-white p-6">
-            <div className="mb-6 flex items-center">
-              <strong className="w-[150px]">1. 작업 상태</strong>
-              <div className="flex items-center space-x-2 text-sm">
-                <span className="text-black">발송완료</span>
-                <span className="text-black">&gt;</span>
-                <span className="text-black">업체도착</span>
-                <span className="text-black">&gt;</span>
-                <span className="text-black">스캔진행</span>
-                <span className="text-black">&gt;</span>
-                <span className="text-black">작업완료</span>
-              </div>
-            </div>
-            <div className="mb-6 flex items-center">
-              <strong className="w-[150px]">2. 주문 일시</strong>
-              <p className="text-sm text-black">2024.12.25 (월) 12:45</p>
-            </div>
-            <div className="mb-6 flex items-center">
-              <strong className="w-[150px]">3. 주문자</strong>
-              <p className="text-sm text-black">홍길동</p>
-            </div>
-            <div className="mb-6 flex items-center">
-              <strong className="w-[150px]">4. 배송 정보</strong>
-              <div className="flex items-center space-x-2">
-                <p className="text-sm text-black">
-                  경기도 시흥시 산기대학로 237 TIP, 1203호
-                </p>
-                <Button className="h-[28px] w-[70px] text-sm" variant="primary">
-                  배송조회
-                </Button>
-              </div>
-            </div>
-            <div className="mb-6 flex items-center">
-              <strong className="w-[150px]">5. 주문 상품</strong>
-              <p className="text-sm text-black">스캔된 자료 2건</p>
-            </div>
-            <div>
-              <strong>6. 상세 정보</strong>
-              <div className="mt-4 h-[1px] w-full bg-gray-300"></div>
-              <div className="mt-4 flex justify-between">
-                <span>문서 작업 (200페이지)</span>
-                <span>16,000원</span>
-              </div>
-              <div className="mt-4 flex justify-between">
-                <span>문서 작업 (300페이지)</span>
-                <span>24,000원</span>
-              </div>
-              <div className="mt-4 h-[1px] w-full bg-gray-300"></div>
-              <div className="mt-4 flex justify-between">
-                <strong>결제 금액</strong>
-                <strong className="text-red-500">47,000원</strong>
-              </div>
-              <div className="mt-4 flex justify-between">
-                <span>결제 수단</span>
-                <span>TOSS / 무통장 입금</span>
-              </div>
-            </div>
-            <Button
-              className="mt-6 w-full"
-              variant="primary"
-              size="custom"
-              onClick={handleSaveImage}
-            >
-              이미지 저장
-            </Button>
-          </div>
-        )}
+          <OrderDetailBox
+    currentStatus="업체도착"
+    orderDate="2024.12.25 (월) 12:45"
+    customer="홍길동"
+    deliveryInfo="경기도 시흥시 산기대학로 237 TIP, 1203호"
+    productDetails="스캔된 자료 2건"
+    paymentAmount="47,000원"
+    paymentMethod="TOSS / 무통장 입금"
+    isModal={false}
+  />
+)}
       </div>
     </div>
   )
