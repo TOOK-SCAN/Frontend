@@ -1,25 +1,30 @@
 'use client'
 
 import Banner from '@tookscan/components/ui/Banner/Banner'
-import { useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import { LayoutProps } from '../../../types/common'
 
 const PrivacyLayout = ({ children }: LayoutProps) => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(0)
+  const pathname = usePathname() // 현재 경로를 가져옵니다.
+  const router = useRouter() // 클라이언트 네비게이션을 위해 사용합니다.
 
   const menuItems = [
-    { label: '개인정보 수집목적 및 이용목적', link: './privacy/Agreement1' },
-    { label: '수집하는 개인정보 항목', link: './Agreement2' },
-    { label: '서비스 부정이용자 처리방안', link: './Agreement3' },
+    { label: '개인정보 수집목적 및 이용목적', link: '/privacy/Agreement1' },
+    { label: '수집하는 개인정보 항목', link: '/privacy/Agreement2' },
+    { label: '서비스 부정이용자 처리방안', link: '/privacy/Agreement3' },
     {
       label: '서비스 이용과정에서 수집되는 정보',
-      link: './Agreement4',
+      link: '/privacy/Agreement4',
     },
-    { label: '개인정보의 수집 방법', link: './Agreement5' },
+    { label: '개인정보의 수집 방법', link: '/privacy/Agreement5' },
   ]
 
+  const handleButtonClick = (link: string) => {
+    router.push(link) // 클라이언트 네비게이션을 사용해 새로고침 없이 이동
+  }
+
   return (
-    <div className="min-h-screen bg-blue-secondary px-8 py-12">
+    <div className="min-h-screen bg-blue-secondary">
       <Banner type={3}></Banner>
       <div className="flex flex-col items-center justify-center">
         <div className="py-[6.25rem]">
@@ -36,14 +41,11 @@ const PrivacyLayout = ({ children }: LayoutProps) => {
                   <button
                     key={index}
                     className={`h-[2.2rem] w-[10rem] items-center justify-center truncate rounded-full border px-[1.25rem] py-[0.3rem] text-sm font-medium transition-all duration-300 ${
-                      activeIndex === index
+                      pathname === item.link
                         ? 'bg-blue-primary text-white'
                         : 'border-blue-primary text-blue-primary'
                     }`}
-                    onClick={() => {
-                      setActiveIndex(index)
-                      window.location.href = item.link
-                    }}
+                    onClick={() => handleButtonClick(item.link)} // router.push로 이동
                     title={item.label} // 말줄임표를 볼 수 있는 툴팁
                   >
                     {item.label}
