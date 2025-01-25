@@ -11,7 +11,7 @@ export default function AutoRedirect({ to }: AutoRedirectProps) {
   const router = useRouter()
 
   useEffect(() => {
-    router.replace(to, { scroll: false })
+    router.push(to)
   }, [to])
 
   return <></>

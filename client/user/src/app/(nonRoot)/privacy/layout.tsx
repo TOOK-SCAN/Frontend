@@ -43,7 +43,7 @@ const PrivacyLayout = ({ children }: LayoutProps) => {
                     className={`h-[2.2rem] w-[10rem] items-center justify-center truncate rounded-full border px-[1.25rem] py-[0.3rem] text-sm font-medium transition-all duration-300 ${
                       pathname === item.link
                         ? 'bg-blue-primary text-white'
-                        : 'border-blue-primary text-blue-primary'
+                        : 'bg border-gray-300 bg-white text-gray-300'
                     }`}
                     onClick={() => handleButtonClick(item.link)} // router.push로 이동
                     title={item.label} // 말줄임표를 볼 수 있는 툴팁
