@@ -12,7 +12,9 @@ export default function AutoRedirect({ to }: AutoRedirectProps) {
   const router = useRouter()
 
   useEffect(() => {
+
     router.push(to)
+
   }, [to])
 
   return <></>

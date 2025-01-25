@@ -6,6 +6,7 @@ const Agreement5 = () => {
           <h2 className="mb-4 text-[1.25rem] font-bold text-black">
             개인정보의 수집 방법
           </h2>
+
           <ul className="list-disc pl-6 text-[1rem] text-gray-700" role="list">
             +{' '}
             <li>
@@ -17,6 +18,7 @@ const Agreement5 = () => {
             <li>외부 업체, 제휴사 등 제3자로부터 제공</li>+{' '}
             <li>로그를 통한 정보 수집</li>+{' '}
           </ul>
+
         </div>
       </div>
     </div>
