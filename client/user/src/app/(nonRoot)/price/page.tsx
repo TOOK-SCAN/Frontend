@@ -68,7 +68,7 @@ const Price = () => {
                     <td className="h-[3.5rem] w-[12.75rem] border border-gray-300 bg-blue-secondary px-4 py-2 text-center align-middle text-blue-primary [border-style:solid]">
                       색감
                     </td>
-                    <td className="h-[3.5rem] w-[21.625rem] border border-gray-00 px-4 py-2 text-center align-middle text-gray-500 [border-style:solid]">
+                    <td className="h-[3.5rem] w-[21.625rem] border border-gray-300 px-4 py-2 text-center align-middle text-gray-500 [border-style:solid]">
                       24비트 컬러
                     </td>
                   </tr>
