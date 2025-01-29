@@ -1,28 +1,61 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @font-face {
   font-family: 'Pretendard';
   src:
-    url('../assets/fonts//PretendardVariable.ttf') format('woff2'),
-    url('../assets/fonts//PretendardVariable.ttf') format('woff');
+    url('../assets/fonts/PretendardVariable.woff2') format('woff2'),
+    url('../assets/fonts/PretendardVariable.woff2') format('woff'),
+    url('../assets/fonts/PretendardVariable.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Pretendard';
   src:
-    url('../assets/fonts//PretendardVariable.ttf') format('woff2'),
-    url('../assets/fonts//PretendardVariable.ttf') format('woff');
+    url('../assets/fonts/PretendardVariable.woff2') format('woff2'),
+    url('../assets/fonts/PretendardVariable.woff2') format('woff'),
+    url('../assets/fonts/PretendardVariable.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
+}
+
+/* 기본 글꼴 설정 */
+/*html {
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/PretendardVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Safari에서 폰트 강제 적용 */
+@supports (-webkit-touch-callout: none) {
+  html {
+    font-family: 'Pretendard', sans-serif !important;
+  }
 }
 
 /* 기본 글꼴 설정 */
 html {
-  font-family: 'Pretendard', sans-serif;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
 }
 
 .hide-scrollbar {
